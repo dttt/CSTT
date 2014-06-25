@@ -38,6 +38,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'tvdd',
+    'floppyforms',
+    'crispy_forms',
+    'member_function',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -61,8 +64,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tvdd',
-        'USER': 'django',
-        'PASSWORD': 'totalwar',
+        'USER': '10520034',
+        'PASSWORD': '10520034',
         'HOST': 'localhost',
         'PORT': '5434',
     }
@@ -86,3 +89,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

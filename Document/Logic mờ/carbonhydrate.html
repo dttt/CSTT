@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <div id="calories" style="width: 700px;float: left;height: 300px"></div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#calories').highcharts({
+                title: {
+                    text: 'Chất đường bột',
+                    x: -20 //center
+                },
+                xAxis: {
+                    min: 40,
+                    max: 70,
+                    labels: {
+                        format: '{value}%'
+                    },
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }],
+                    max: 1,
+                    min: 0,
+                    lineWidth: 1,
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'middle',
+                    borderWidth: 0
+                },
+                series: [{
+                    name: 'FCa1',
+                    data: [[40, 1], [45, 1], [45, 1], [55, 0]]
+                }, {
+                    name: 'FCa2',
+                    data: [[45, 0], [55, 1], [65,0]]
+                }, {
+                    name: 'FCa3',
+                    data: [[55, 0], [65, 1], [65, 1], [70, 1]]
+                }]
+            });
+        });
+    </script>
+</body>
+</html>

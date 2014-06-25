@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block main_content %}
+    <div class="row">
+        <div class="col-md-4 jumbotron">
+            {% load crispy_forms_tags %}
+            {% crispy form %}
+        </div>
+        <div class="col-md-8"></div>
+    </div>
+{% endblock %}

@@ -1,10 +1,14 @@
 from django.contrib import admin
 
 
-from .models import Dish, DishType, Ingredient, Macronutrient
+from .models import (
+    Dish, DishType, Ingredient, Macronutrient,
+    UserGroup, MacronutrientUserGroup)
 
 
 admin.site.register(Dish)
 admin.site.register(DishType)
 admin.site.register(Ingredient)
 admin.site.register(Macronutrient)
+admin.site.register(MacronutrientUserGroup)
+admin.site.register(UserGroup)
