@@ -40,8 +40,10 @@ class Dish(models.Model):
     vegan = models.BooleanField(u"Là món chay?")
     calories = models.DecimalField(
         u"Calories cung cấp", max_digits=6, decimal_places=2)
-    protein = models.DecimalField(u"Chất đạm cung cấp", max_digits=6, decimal_places=2)
-    fat = models.DecimalField(u"Chất béo cung cấp", max_digits=6, decimal_places=2)
+    protein = models.DecimalField(
+        u"Chất đạm cung cấp", max_digits=6, decimal_places=2)
+    fat = models.DecimalField(
+        u"Chất béo cung cấp", max_digits=6, decimal_places=2)
     carbohydrate = models.DecimalField(
         u"Chất đường bột cung cấp", max_digits=6, decimal_places=2)
     dietary_fiber = models.DecimalField(
@@ -59,3 +61,35 @@ class MacronutrientUserGroup(models.Model):
 
     def __unicode__(self):
         return u"%s %s" % (self.macronutrient_id, self.user_group_id)
+
+
+class Sex(models.Model):
+    name = models.CharField(max_length=5)
+
+    def __unicode__(self):
+        return u'%s' % self.name
+
+    class Meta:
+        verbose_name = u'Giới tính'
+        verbose_name_plural = u'Các giới tính'
+
+
+class ActivityLevel(models.Model):
+    name = models.CharField(max_length=50)
+    description = models.TextField()
+
+    def __unicode__(self):
+        return u'%s' % self.name
+
+    class Meta:
+        verbose_name = u'Mức độ hoạt động'
+        verbose_name_plural = u'Các mức độ hoạt động'
+
+
+class EER(models.Model):
+    min_age = models.IntegerField(u'Tuổi bắt đầu')
+    max_age = models.IntegerField(u'Tuổi kết thúc')
+    sex = models.ForeignKey(Sex, verbose_name=u'Giới tính')
+    calories = models.IntegerField()
+    activity_level = models.ForeignKey(
+        ActivityLevel, verbose_name=u'Mức độ hoạt động')

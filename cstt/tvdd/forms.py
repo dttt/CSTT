@@ -5,20 +5,17 @@ from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit, Layout
 from crispy_forms.bootstrap import InlineRadios
 
+from tvdd.models import Sex, ActivityLevel
 
 class UserForm(forms.Form):
     age = forms.IntegerField(
         label="Tuổi",
         required=True
     )
-    sex = forms.ChoiceField(
-        label="Giới tính",
-        choices=(
-            (1, 'Nam'),
-            (2, 'Nữ')
-        ),
-        required=True,
-        widget=forms.RadioSelect
+    sex = forms.ModelChoiceField(
+        queryset=Sex.objects.all(),
+        label=u'Giới tính',
+        empty_label=None
     )
     height = forms.IntegerField(
         label="Chiều cao",
@@ -34,16 +31,10 @@ class UserForm(forms.Form):
             attrs={'placeholder': 'Đơn vị là kg'}
         )
     )
-    activity_level = forms.ChoiceField(
-        label="Mức độ hoạt động",
-        choices=(
-            (1, "Hoạt động ít"),
-            (2, "Hoạt động trung bình"),
-            (3, "Hoạt động nhiều")
-        ),
-        widget=forms.RadioSelect,
-        initial='1',
-        required= True
+    activity_level = forms.ModelChoiceField(
+        queryset=ActivityLevel.objects.all(),
+        label=u'Mức độ hoạt động',
+        empty_label=None,
     )
 
     def __init__(self, *args, **kwargs):

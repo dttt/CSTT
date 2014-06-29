@@ -10,4 +10,5 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', "tvdd.views.home", name='home'),
+    url(r'^test$', "tvdd.views.test", name='home'),
 )

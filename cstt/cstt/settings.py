@@ -40,7 +40,7 @@ INSTALLED_APPS = (
     'tvdd',
     'floppyforms',
     'crispy_forms',
-    'member_function',
+    'fuzzy',
 )
 
 MIDDLEWARE_CLASSES = (
