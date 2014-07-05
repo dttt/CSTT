@@ -7,9 +7,9 @@ from .helper import Function
 class User(object):
 
     def __init__(self, data):
-        weight = Decimal(data['weight'])
-        height = Decimal(data['height'])
-        age = Decimal(data['age'])
+        weight = data['weight']
+        height = data['height']
+        age = data['age']
         sex = data['sex']
         activity_level = data['activity_level']
         function = Function()
@@ -21,5 +21,11 @@ class User(object):
         self.age = age
         # Sự kiện loại 2
         self.user_group = function.get_user_group(self.age)
-        self.status = function.get_status(function.get_bmi(height, weight))
+        self.status = function.get_status(
+            function.get_bmi(height=Decimal(height), weight=Decimal(weight)))
         self.eer = function.get_eer(age=age, sex=sex, activity=activity_level)
+        self.energy = function.get_energy(self)
+        mu = function.get_macronutrient_value(self)
+        self.protein = mu[0][1]
+        self.fat = mu[1][1]
+        self.carbohydrate = mu[2][1]

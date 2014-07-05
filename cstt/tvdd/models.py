@@ -34,6 +34,14 @@ class Ingredient(models.Model):
         return u'%s' % self.name
 
 
+class Mealtime(models.Model):
+    name = models.CharField("Tên bữa ăn", max_length=40)
+    time = models.TimeField("Giờ thường ăn")
+
+    def __unicode__(self):
+        return u'%s' % self.name
+
+
 class Dish(models.Model):
     name = models.CharField(u"Tên món ăn", max_length=30)
     type = models.ForeignKey(DishType, verbose_name=u"Loại")
@@ -50,6 +58,7 @@ class Dish(models.Model):
         u"Chất xơ cung cấp", max_digits=6, decimal_places=2)
     main_ingredient = models.ForeignKey(
         Ingredient, verbose_name=u"Nguyên liệu chính")
+    mealtime = models.ManyToManyField(Mealtime, null=True)
 
     def __unicode__(self):
         return u'%s' % self.name

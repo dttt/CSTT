@@ -17,7 +17,7 @@ class UserForm(forms.Form):
         label=u'Giới tính',
         empty_label=None
     )
-    height = forms.IntegerField(
+    height = forms.DecimalField(
         label="Chiều cao",
         required=True,
         widget=forms.NumberInput(

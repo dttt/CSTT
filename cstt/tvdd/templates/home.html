@@ -6,7 +6,52 @@
             {% crispy form %}
         </div>
         <div class="col-md-8">
-            {{user.eer}}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class='text-center'>Thông tin suy diễn được</h2>
+                </div>
+                <div class="panel-body">
+                    <p><b>Năng lượng nên nạp vào hằng ngày:</b> {{user.energy|floatformat}} kcal</p>
+                    <p><b>Lượng chất đạm nên nạp vào hằng ngày:</b> {{user.protein|floatformat}} gram</p>
+                    <p><b>Lượng chất béo nên nạp vào hằng ngày:</b> {{user.fat|floatformat}} gram</p>
+                    <p><b>Lượng chất đường bột nên nạp vào hằng ngày:</b> {{user.carbohydrate|floatformat}} gram</p>
+                </div>
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2 class="text-center">Thực đơn trong ngày</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3>Bữa sáng</h3>
+                        </div>
+                        <div class="panel-body">
+                            {{ dishes.0.canh }}
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3>Bữa trưa</h3>
+                        </div>
+                        <div class="panel-body">
+                            Hai chén cơm<br>
+                            <b>Món canh:</b> {{ dishes.1.canh }}<br>
+                            <b>Món mặn:</b> {{ dishes.1.man }}<br>
+                        </div>
+                    </div>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h3>Bữa tối</h3>
+                        </div>
+                        <div class="panel-body">
+                            Hai chén cơm<br>
+                            <b>Món canh</b>: {{ dishes.2.canh }}<br>
+                            <b>Món mặn</b>: {{ dishes.2.man }}<br>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -4,7 +4,7 @@ from django.contrib import admin
 from .models import (
     Dish, DishType, Ingredient, Macronutrient,
     UserGroup, MacronutrientUserGroup, Sex, ActivityLevel,
-    EER)
+    EER, Mealtime)
 
 
 admin.site.register(Dish)
@@ -16,3 +16,4 @@ admin.site.register(UserGroup)
 admin.site.register(EER)
 admin.site.register(Sex)
 admin.site.register(ActivityLevel)
+admin.site.register(Mealtime)
